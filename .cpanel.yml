@@ -1,0 +1,10 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/furgas/emigrate
+    - /bin/cp -R static $DEPLOYPATH
+    - /bin/cp -R templates $DEPLOYPATH
+    - /bin/cp credentials.txt $DEPLOYPATH
+    - /bin/cp main.py $DEPLOYPATH
+    - /bin/cp requirements.txt $DEPLOYPATH
+
