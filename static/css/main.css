@@ -1,6 +1,6 @@
 /* Set a background image by replacing the URL below */
 body {
-    background: url({{ url_for('static',filename='img/mtn_background-min.jpeg') }}) no-repeat center center fixed;
+    background: url('../img/mtn_background-min.jpeg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
