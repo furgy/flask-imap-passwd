@@ -1,5 +1,4 @@
-# This is a test
-≈from flask import Flask, render_template, request, redirect, flash, abort, url_for
+from flask import Flask, render_template, request, redirect, flash, abort, url_for
 from wtforms import Form, PasswordField, HiddenField, BooleanField
 from wtforms.validators import EqualTo, InputRequired
 from datetime import datetime as dt
