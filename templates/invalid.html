@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block head %}{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="text-center mb-5">Invalid Token</h3>
+            <div>
+                <p>You have provided an <b>invalid token: {{ token_id }}</b>.</p>
+                <p>You must provide a valid token to start this process.  Please check 
+                    your email for the correct token and provide it below to start the 
+                    process.
+                </p>
+                <p>If you believe you are submitting the proper token, please 
+                    <a href="mailto:shawn@furgason.com">contact me</a>.
+                </p><br />
+            </div>
+            <hr class="mb-5">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <span class="anchor" id="formChangePassword"></span>
+                    <div class="card card-outline-secondary mh-100">
+                        <div class="card-header">
+                            <h5 class="mb-0">Token Submission</h5>
+                        </div>
+                        <div class="card-body">
+                            <form class="form" role="form" autocomplete="off" method="GET" action="#">
+                                <div class="form-group">
+                                    <label for="token_id">Token</label>
+                                    <input type="text" class="form-control" id="token_id" name="token_id" required="">
+                                    <span class="form-text small text-muted"> Please enter the token provided to you via email.</span>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn float-right">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static',filename='js/form.js') }}"></script>
+{% endblock %}

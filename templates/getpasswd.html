@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block head %}{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="text-center mb-5">Your Password</h3>
+            <div>
+                <!-- The value of validPasswd: {{ validPasswd }}
+                The value of passwdNotSet: {{ passwdNotSet }} -->
+                {% if validPasswd %}
+                <p>The password for your account is: <b>{{ password }}</b></p>
+                <p>Please protect this password as well as the token.  Anyone 
+                    that has either piece of information can obtain access to 
+                    your email account.
+                </p>
+                {% elif passwdNotSet == "<reset>" %}
+                <p>Your password will be reset for the migration.  Check back here 
+                    for your password once it has been set.</p>
+                {% elif passwdNotSet %}
+                <p>Your password has not been stored.  Please either submit 
+                    your password or indicate you would like it reset it ASAP.</p>
+                <p>If you have your token, you can start the process 
+                    <a href="{{ url_for('get_token') }}">here</a>.</p>
+                {% endif %}
+                <br />
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

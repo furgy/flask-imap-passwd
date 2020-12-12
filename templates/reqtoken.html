@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block head %}{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="text-center mb-5">Please Provide Your Token</h3>
+            <div>
+                <p>Please submit the token you've been previously provided to
+                    start the process</p>
+            </div>
+            <hr class="mb-5">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <span class="anchor" id="formChangePassword"></span>
+                    <div class="card card-outline-secondary mh-100">
+                        <div class="card-header">
+                            <h5 class="mb-0">Token Submission</h5>
+                        </div>
+                        <div class="card-body">
+                            <form class="form" role="form" autocomplete="off" method="GET" action="/t">
+                                <div class="form-group">
+                                    <label for="token_id">Token</label>
+                                    <input type="text" class="form-control" id="token_id" name="token_id" required="">
+                                    <span class="form-text small text-muted"> Please enter the token provided to you via email.</span>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn float-right">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static',filename='js/form.js') }}"></script>
+{% endblock %}

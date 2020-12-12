@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block head %}{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            {% if resetPasswd %}
+                <h3 class="text-center mb-5">Reset Password Confirmed</h3>
+            {% else %}
+                <h3 class="text-center mb-5">Password Confirmed</h3>
+            {% endif %}
+            <div>
+                {% if resetPasswd %}
+                    <p>Thank you! You decision to <b>reset your password</b> has been stored.</p>
+                {% else %}
+                    <p>Thank you! You password has been <b>confirmed and stored to support the 
+                        transfer</b>.</p>
+                {% endif %}
+                <p>Please see the <a href="{{ url_for('faq') }}">frequently asked 
+                    questions</a> for more information on the conversion 
+                    including what to expect and timing.<p>
+                <p>That's it for now!</p><br />
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static',filename='js/form.js') }}"></script>
+{% endblock %}

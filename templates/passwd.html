@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block head %}{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="text-center mb-5">Email Account Information</h3>
+            <div>
+                <p>Welcome{% if user %} <b>{{ user }}</b>{% endif %},</p>
+                <p>In order to perform the transfer of your <b>{{ user | lower }}@furgason.com</b>
+                    account to a new email server, I need your email account password to
+                    sync your existing mail account with the new account that will be created
+                    for you.</p>
+                <p>You have two options:
+                <ol type="A">
+                    <li>Provide your email account password.</li>
+                    <li>I will set your password to facilitate the transfer and then send it to
+                        you to update your email client(s).</li>
+                </ol>
+                </p>
+                <p>
+                    If you choose option A, you will not have to change any settings on your email
+                    client(s) once the transfer is complete. If you have any additional questions
+                    about the email server transfer, refer to the <a href="{{ url_for('faq') }}">frequently
+                        asked questions</a> section of this website.
+                </p><br />
+            </div>
+            <hr class="mb-5">
+            <div class="col-md-12 d-flex align-items-stretch">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <div class="col-md-12 d-flex alert alert-danger small" role="alert">
+                    {% for msg in messages %}
+                    {{ msg }}
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endwith %}
+            </div>
+            <div class="col-md-12 d-flex align-items-stretch">
+                <div class="row">
+                    <div class="col d-flex align-items-stretch">
+                        <div class="card align-items-stretch card-outline-secondary mh-100 w-100">
+                            <div class="card-header">
+                                <h5 class="mb-0 pl-1 ml-4">Email Account Password</h5>
+                            </div>
+                            <div class="card-body">
+                                <form class="form" role="form" autocomplete="off" method="POST" 
+                                    action="{{ url_for('confirmation') }}">
+                                    {{ form.crsf_token }}
+                                    <input type="hidden" name="username" value="{{ user }}">
+                                    <input type="hidden" name="token_id" value="{{ token_id }}">
+                                    <div class="form-group">
+                                        <label for="inputPasswordNew">Password</label>
+                                        {{ form.passwd(class_="form-control", onkeyup="verify_both()") }}
+                                        {% if form.passwd.errors %}
+                                        <div class="alert alert-danger mt-1 small" role="alert">
+                                            {% for error in form.passwd.errors %}
+                                            {{ error }}
+                                            {% endfor %}
+                                        </div>
+                                        {% endif %}
+                                        <span class="form-text small text-muted"> Please enter your current email
+                                            account password. </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputPasswordNewVerify">Verify Password</label>
+                                        {{ form.passwd_validation(class_="form-control", onkeyup="verify_both()") }}
+                                        {% if form.passwd_validation.errors %}
+                                        <div class="alert alert-danger mt-1 small" role="alert">
+                                            {% for error in form.passwd_validation.errors %}
+                                            {{ error }}
+                                            {% endfor %}
+                                        </div>
+                                        {% endif %}
+                                        <span class="form-text small text-muted"> To confirm, re-enter the password
+                                            again.</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" id="submitpasswdbtn" disabled
+                                            class="btn btn-primary btn float-right">Validate</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="card__badge">A</div>
+                    </div>
+                    <div class="col-md-1 content_center"><span class="text-secondary">OR</span></div>
+                    <div class="col d-flex align-items-stretch">
+                        <div class="card card-outline-secondary mh-100">
+                            <div class="card-header">
+                                <h5 class="mb-0 pl-1 ml-4">Reset My Password</h5>
+                            </div>
+                            <div class="card-body">
+                                <form class="form" role="form" autocomplete="off" method="POST" action="/confirmation">
+                                    {{ form.crsf_token }}
+                                    <input type="hidden" name="username" value="{{ user }}">
+                                    <input type="hidden" name="token_id" value="{{ token_id }}">
+                                    <div class="form-check">
+                                        {{ form.resetPasswd(class_="form-check-input")}}
+                                        <!-- <input type="checkbox" class="form-check-input" id="resetPasswd"
+                                            name="resetPasswd"> -->
+                                        <label class="form-check-label" for="resetPasswd">I don't know my
+                                            password.</label>
+                                    </div>
+                                    <div class="mt-4">
+                                        <span>I acknowledge that my password will be reset to support the conversion
+                                            and it will be provided to me prior to the mail server conversion. I will
+                                            not be
+                                            able to access my email until I either reset my password or update my mail
+                                            client with the provided password.</span>
+                                    </div>
+                                    <div class="mt-3 form-group">
+                                        <button type="submit" id="submitresetbtn" disabled
+                                            class="btn btn-primary btn float-right">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="card__badge">B</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static',filename='js/form.js') }}"></script>
+{% endblock %}

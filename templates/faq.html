@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block head %}{% endblock %}
+{% block content %}
+<div class="container">
+    <div id="accordion">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                        aria-controls="collapseOne">
+                        Why are you moving the email server?
+                    </button>
+                </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                    <p>Currently all furgason.com email is hosted by a company called IONOS (formerly 1and1).
+                        This has been a reliable and inexpensive service for more than 10 years. Unfortunately, the
+                        service limits the number of email addresses and the size of the email storage quota. To
+                        upgrade it to support more than 5 accounts and more storage would cost more than
+                        $350/yr. which isn't worth it to me. I would like to offer anyone that wants a furgason.com
+                        email address the ability to have one as well as expand the email quota limit.</p>
+                    <p>Unfortunately moving the mail server requires that all email accounts are moved at one
+                        time</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="false" aria-controls="collapseTwo">
+                        Will I lose any email in the conversion?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                    <p>No, you will not lose any email in the transfer. I have tested the process multiple
+                        times and verified it works well.</p>
+                    <p>However, I am not guaranting the process is flawless. Like anything computer related
+                        that is critical, you should have a backup.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                        aria-expanded="false" aria-controls="collapseThree">
+                        How will the conversion take place?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                <div class="card-body">
+                    <p>The process takes place in 5 steps.
+                    <p>
+                    <ol>
+                        <li>New accounts will be created on the new email server. It is recommended that you
+                            utilize the same password for your new account as your old one (at least
+                            during the conversion) as it will make the process simplier. Once the
+                            transfer is complete you may use the webmail interface to change your
+                            password to whatever you would like.</li>
+                        <li>For each account, all email will be synced between the old and new servers.
+                            This initial syncing process will take from a few minutes to a couple of hours
+                            the first time it runs, depending upon the number of messages and size of
+                            the mailbox.</li>
+                        <li>The (DNS) servers on the internet that indicate how to
+                            locate the furgason.com mail server will be updated to point the mail server
+                            address to the new mail host. This step will instruct email servers
+                            to deliver mail to your account to the new email servers. The old email accounts will still
+                            remain on the
+                            old server but they will no longer receive any new email.</li>
+                        <li>The new email servers will being receiving new email. The
+                            old and new email servers will be synced one additional time to ensure that
+                            any email copied from the original sync is updated on the new server. You
+                            will receive an email when this step has been completed. I would recommend that you
+                            perform a quick validation that everything looks to be in working order. If
+                            everything appears to be in working order, I'd recommend changing your email
+                            account password. This step it not required but it's good practice (and I
+                            really don't want to know your email account password).
+                        </li>
+                        <li>Assuming there are no issues with the migration, I will delete the old email accounts on the
+                            old hosting provider about 30 days after the migration is completed. Once that has been completed there
+                            will not be any way to recover any old email from your account so it's important to verify your new account
+                            is working as soon as possible after the conversion.</li>
+                        </li>
+                    </ol>
+                    <p>The only thing required of you is to either provide me your existing email account
+                        password or to indicate you want me to reset it.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingFour">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
+                        aria-expanded="false" aria-controls="collapseFour">
+                        Is my password secure?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                <div class="card-body">
+                    <p>Yes. The connection you are using is utilizing a signed SSL certificate specific to this
+                        website. In addition, your password is encrypted using a 128-bit encryption key. The
+                        key is never stored on the webserver and is protected in a secure key vault disconnected
+                        from the internet.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingFour">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive"
+                        aria-expanded="false" aria-controls="collapseFive">
+                        When will the conversion take place?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                <div class="card-body">
+                    <p>TBD</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
