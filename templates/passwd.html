@@ -93,14 +93,12 @@
                                 <h5 class="mb-0 pl-1 ml-4">Reset My Password</h5>
                             </div>
                             <div class="card-body">
-                                <form class="form" role="form" autocomplete="off" method="POST" action="/confirmation">
+                                <form class="form" role="form" autocomplete="off" method="POST" action="{{ url_for('confirmation')">
                                     {{ form.crsf_token }}
                                     <input type="hidden" name="username" value="{{ user }}">
                                     <input type="hidden" name="token_id" value="{{ token_id }}">
                                     <div class="form-check">
                                         {{ form.resetPasswd(class_="form-check-input")}}
-                                        <!-- <input type="checkbox" class="form-check-input" id="resetPasswd"
-                                            name="resetPasswd"> -->
                                         <label class="form-check-label" for="resetPasswd">I don't know my
                                             password.</label>
                                     </div>
