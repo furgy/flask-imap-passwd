@@ -74,7 +74,7 @@ if ENC_KEY is None:
 def send_email(recipient,message):
     #Create a secure SSL context
 
-    if FLASK_ENV == "development":
+    if FLASK_ENV == "development":-6+
         print(f"Recipient: {recipient}")
         print(f"Message:\n{message}")
         recipient = "shawn@furgason.com"
