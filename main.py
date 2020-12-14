@@ -233,7 +233,7 @@ def confirmation():
         password = form.passwd.data
         print(f"Token_id from confirmation: {token_id}")
 
-        ms = imaplib.IMAP4_SSL(MAIL_VALIDATION_ADDR)
+        ms = imaplib.IMAP4_SSL(EMAIL_VALIDATION_ADDR)
         email_account = username.lower() + EMAIL_DOMAIN
 
         print(email_account)
