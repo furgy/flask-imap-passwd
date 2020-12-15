@@ -4,6 +4,7 @@ from wtforms.validators import EqualTo, InputRequired
 from datetime import datetime as dt
 import imaplib
 import os
+import sys
 from cryptography.fernet import Fernet
 import smtplib, ssl
 # import config_messages
@@ -25,7 +26,7 @@ SENDER_EMAIL_ADDR = os.environ.get('SENDER_EMAIL_ADDR')
 SENDER_EMAIL_PASS = os.environ.get('SENDER_EMAIL_PASS')
 EMAIL_SERVER_ADDR = os.environ.get('EMAIL_SERVER_ADDR')
 EMAIL_DOMAIN = '@furgason.com'
-EMAIL_VALIDATION_ADDR = "mail.ionos.com"
+EMAIL_VALIDATION_ADDR = 'imap.1and1.com'
 EMAIL_SERVER_PORT = 465
 FLASK_ENV = os.environ.get('FLASK_ENV')
 
@@ -232,8 +233,12 @@ def confirmation():
     if request.method == 'POST' and form.validate():
         password = form.passwd.data
         print(f"Token_id from confirmation: {token_id}")
+        print(f"Email server validation address: {EMAIL_VALIDATION_ADDR}")
 
-        ms = imaplib.IMAP4_SSL(EMAIL_VALIDATION_ADDR)
+        try:
+            ms = imaplib.IMAP4_SSL(EMAIL_VALIDATION_ADDR)
+        except:
+            print("Unable to establish SSL connection:", sys.exc_info()[0])
         email_account = username.lower() + EMAIL_DOMAIN
 
         print(email_account)
