@@ -79,6 +79,9 @@ def send_email(recipient,message):
         print(f"Recipient: {recipient}")
         print(f"Message:\n{message}")
         recipient = "shawn@furgason.com"
+
+    print(f"SENDER_EMAIL_ADDR: {SENDER_EMAIL_ADDR}")
+    print(f"SENDER_EMAIL_PASS: {SENDER_EMAIL_PASS}")
         
     context = ssl.create_default_context()
 
