@@ -82,8 +82,8 @@ def send_email(recipient,message):
         print(f"SENDER_EMAIL_ADDR: {SENDER_EMAIL_ADDR}")
         print(f"SENDER_EMAIL_PASS: {SENDER_EMAIL_PASS}")
         
-    print(f"EMAIL_SERVER_ADDR: {EMAIL_SERVER_ADDR}")
-    print(f"EMAIL_SERVER_PORT: {EMAIL_SERVER_PORT}")
+    print(f"EMAIL_SERVER_ADDR: '{EMAIL_SERVER_ADDR}'")
+    print(f"EMAIL_SERVER_PORT: '{EMAIL_SERVER_PORT}'")
     context = ssl.create_default_context()
 
     with smtplib.SMTP_SSL(EMAIL_SERVER_ADDR, EMAIL_SERVER_PORT, context=context) as server:
