@@ -20,6 +20,14 @@ resetchecker.onchange = function() {
   submitresetbtn.disabled = !this.checked;
 }
 
+$('#passwd').bind('input propertychange', function() {
+  verify_both();
+});
+
+$('#passwd_validation').bind('input propertychange', function() {
+  verify_both();
+});
+
 function verify_both() {
   var passwd = document.getElementById("passwd");
   var passwd_validation = document.getElementById("passwd_validation");
