@@ -39,8 +39,11 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                 <div class="card-body">
                     <p>No, you will not lose any email in the transfer. I have tested the process multiple
-                        times and verified it works well.</p>
-                    <p>However, I am not guaranting the process is flawless. Like anything computer related
+                        times and verified it works well.  In addition, your email will safely remain in 
+                        the current email servers through the migration and for an extended period of time 
+                        after the migration.</p>
+                    <p>While I have tested this process many times and I am very confident of it's success, 
+                        I am not guaranting the process is flawless. Like anything computer related
                         that is critical, you should have a backup.
                     </p>
                 </div>
@@ -107,27 +110,101 @@
             <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                 <div class="card-body">
                     <p>Yes. The connection you are using is utilizing a signed SSL certificate specific to this
-                        website. In addition, your password is encrypted using a 128-bit encryption key. The
-                        key is never stored on the webserver and is protected in a secure key vault disconnected
-                        from the internet.</p>
+                        website. In addition, your password is encrypted and the encryption key is never stored 
+                        on the webserver.  The key is secured in a digital key vault which is also encrypted with 
+                        an even strong encryption key.</p>
                 </div>
             </div>
         </div>
         <div class="card">
-            <div class="card-header" id="headingFour">
+            <div class="card-header" id="headingFive">
                 <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive"
-                        aria-expanded="false" aria-controls="collapseFive">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix"
+                        aria-expanded="false" aria-controls="collapseSix">
                         When will the conversion take place?
                     </button>
                 </h5>
             </div>
-            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
                 <div class="card-body">
-                    <p>TBD</p>
+                    <p>The conversion will take place on 12/26/2020.  I will need you to provide your email
+                       account password or indicated you want your password reset by midnight 12/25/2020.  If 
+                       you don't provide your password or indicated you want your account reset by this time 
+                       I will reset your password to faciliate the migration of the rest of the accounts.  
+                       I will send your password to you after the migration is complete.
+                    </p>
                 </div>
             </div>
         </div>
+        <div class="card">
+            <div class="card-header" id="headingSix">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven"
+                        aria-expanded="false" aria-controls="collapseSeven">
+                        Will I have to make any changes to my email clients after the migration?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                <div class="card-body">
+                    <p>It is possible you will need to make some changes.  You can check your settings now 
+                       and if they are incorrect, you can change them at any time to ensure they are correct.</p>
+                    <p>In your email client configuration, you'll need to check to see which address you have 
+                       configured for your <b>Incoming IMAP server</b> and <b>Sending SMTP server</b>.  The 
+                       names your email client calls these servers may be slightly different but you should 
+                       have something close to this in your configuration.<p>
+                    <p>If your setting point to imap.1and1.com, smtp.1and1.com, imap.ionos.com or smtp.ionos.com 
+                       you will need to change the address of your mail servers.  The new address for both the
+                       IMAP and SMTP servers should be <b>mail.furgason.com</b>.  The port for IMAP is 993 and
+                       the port for SMTP is 587.  These should not need to be changed as they are the same ports 
+                       that are used with the current mail server.</p>
+                    <p>If any of these settings are incorrect, I would recommend that you change them now.  I 
+                       have configured mail.furgason.com to point to the old email server and I will change it 
+                       to point to the new one of the day of the migration.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="card">
+            <div class="card-header" id="headingSeven">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight"
+                        aria-expanded="false" aria-controls="collapseEight">
+                        When will the conversion take place?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+                <div class="card-body">
+                    <p>The conversion will take place on 12/26/2020.  I will need you to provide your email
+                       account password or indicated you want your password reset by midnight 12/25/2020.  If 
+                       you don't provide your password or indicated you want your account reset by this time 
+                       I will reset your password to faciliate the migration of the rest of the accounts.  
+                       I will send your password to you after the migration is complete.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingEight">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseNine"
+                        aria-expanded="false" aria-controls="collapseNine">
+                        When will the conversion take place?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
+                <div class="card-body">
+                    <p>The conversion will take place on 12/26/2020.  I will need you to provide your email
+                       account password or indicated you want your password reset by midnight 12/25/2020.  If 
+                       you don't provide your password or indicated you want your account reset by this time 
+                       I will reset your password to faciliate the migration of the rest of the accounts.  
+                       I will send your password to you after the migration is complete.
+                    </p>
+                </div>
+            </div>
+        </div> -->
     </div>
 </div>
 {% endblock %}
