@@ -229,9 +229,9 @@ def confirmation():
         print(resetPasswd)
         if resetPasswd == True:
             store_password(token_id,"<reset>")
-            msg = SET_EMAIL_PASSWORD_MSG.replace("[[recipient name]]",user)
-            msg = msg.replace("[[recipient preferences]]",PREF_RESET)
-            send_email(user+"@furgason.com",msg)
+            # msg = SET_EMAIL_PASSWORD_MSG.replace("[[recipient name]]",user)
+            # msg = msg.replace("[[recipient preferences]]",PREF_RESET)
+            # send_email(user+"@furgason.com",msg)
             return render_template('confirmation.html', resetPasswd=True, token_id=token_id)
 
     if request.method == 'POST' and form.validate():
@@ -258,8 +258,8 @@ def confirmation():
 
         if login_success:
             store_password(token_id,encrypt_string(password))
-            msg = SET_EMAIL_PASSWORD_MSG.replace("[[recipient name]]",user)
-            msg = msg.replace("[[recipient preferences]]",PREF_STORE)
-            send_email(user+EMAIL_DOMAIN,msg)
+            # msg = SET_EMAIL_PASSWORD_MSG.replace("[[recipient name]]",user)
+            # msg = msg.replace("[[recipient preferences]]",PREF_STORE)
+            # send_email(user+EMAIL_DOMAIN,msg)
             return render_template('confirmation.html', password=password, token_id=token_id)
     return render_template('passwd.html', form=form, user=user)
