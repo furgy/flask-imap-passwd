@@ -20,9 +20,8 @@ class CredentialsForm(Form):
         render_kw={"data-eye-class":"fa", "data-eye-open-class":"fa-eye",                                        "data-eye-close-class":"fa-eye-slash",
         "data-toggle":"password"})
 
-app = Flask(__name__)
-application = app
-app.config['SECRET_KEY'] = 'akjtlwejaleijlaenlfnl'
+application = Flask(__name__)
+application.config['SECRET_KEY'] = 'akjtlwejaleijlaenlfnl'
 SENDER_EMAIL_ADDR = os.environ.get('SENDER_EMAIL_ADDR')
 SENDER_EMAIL_PASS = os.environ.get('SENDER_EMAIL_PASS')
 EMAIL_SERVER_ADDR = os.environ.get('EMAIL_SERVER_ADDR')
@@ -127,39 +126,39 @@ def store_password(token_id,passwd):
 
     oF.close()
 
-@app.errorhandler(404)
+@application.errorhandler(404)
 def page_not_found(e):
     # note that we set the 404 status explicitly
     return render_template('404.html'), 404
 
-@app.errorhandler(500)
+@application.errorhandler(500)
 def page_not_found(e):
     # note that we set the 500 status explicitly
     return render_template('500.html'), 500
 
-@app.route('/favicon.ico')
+@application.route('/favicon.ico')
 def favicon():
     return redirect(url_for('static', filename='favicon.ico'))
     
-@app.route('/')
+@application.route('/')
 def index():
     return "Hello World"
 
-@app.route('/testing')
+@application.route('/testing')
 def testing():
     return "Testing worked!"
 
-# @app.route('/faq.html')
-@app.route('/faq')
+# @application.route('/faq.html')
+@application.route('/faq')
 def faq():
     return render_template('faq.html')
 
-@app.route('/s/<template_name>')
+@application.route('/s/<template_name>')
 def template(template_name):
     return render_template(f"{template_name}")
 
-@app.route('/t')
-@app.route('/t/<token_id>')
+@application.route('/t')
+@application.route('/t/<token_id>')
 def get_token(token_id='n'):
     t = request.args.get('token_id') 
     r = request.args.get('resetPasswd')
@@ -188,7 +187,7 @@ def get_token(token_id='n'):
             return render_template('passwd.html', token_id=token_id, form=form)
         return render_template('reqtoken.html')
 
-@app.route('/getpasswd', methods=['GET','POST'])
+@application.route('/getpasswd', methods=['GET','POST'])
 def getpasswd():
     if request.method == 'POST':
         token_id = request.form.get('token_id')
@@ -223,7 +222,7 @@ def getpasswd():
     else:
         return render_template('gettoken.html')
 
-@app.route('/confirmation', methods=['POST'])
+@application.route('/confirmation', methods=['POST'])
 def confirmation():
     form = CredentialsForm(request.form)
     if request.method == 'POST':
