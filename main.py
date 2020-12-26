@@ -145,6 +145,10 @@ def favicon():
 def index():
     return "Hello World"
 
+@app.route('/testing')
+def testing():
+    return "Testing worked!"
+
 # @app.route('/faq.html')
 @app.route('/faq')
 def faq():
