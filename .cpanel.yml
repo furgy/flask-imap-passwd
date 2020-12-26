@@ -2,7 +2,7 @@
 deployment:
   tasks:
     # - export DEPLOYPATH=/home/furgus/emigrate
-    - export DEPLOYPATH=/home/finffolf/emigrate
+    - export DEPLOYPATH=/home/finffolf/migrate
     - /bin/cp -R static $DEPLOYPATH
     - /bin/cp -R templates $DEPLOYPATH
     - /bin/cp credentials.txt $DEPLOYPATH
