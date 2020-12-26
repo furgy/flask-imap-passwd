@@ -7,7 +7,6 @@ import os
 import sys
 from cryptography.fernet import Fernet
 import smtplib, ssl
-# import config_messages
 
 class CredentialsForm(Form):
     token_id = HiddenField()
