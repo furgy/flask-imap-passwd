@@ -20,6 +20,7 @@ class CredentialsForm(Form):
         "data-toggle":"password"})
 
 app = Flask(__name__)
+application = app
 app.config['SECRET_KEY'] = 'akjtlwejaleijlaenlfnl'
 SENDER_EMAIL_ADDR = os.environ.get('SENDER_EMAIL_ADDR')
 SENDER_EMAIL_PASS = os.environ.get('SENDER_EMAIL_PASS')
